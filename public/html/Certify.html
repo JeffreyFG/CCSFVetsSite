@@ -4,7 +4,7 @@
         <head>
             <title>CCSF Veterans certifcation page</title>
             <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
-                   
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             
         </head>
         <nav>
@@ -23,17 +23,88 @@
                 <h3>Please enter your Student Id number and number of units to certify</h1>
                     <form action="/certify" encType ="application/x-www-form-urlencoded" method="POST" >
                     
-                    
+                            <label for="lastName_input">Last Name:</label>
+                            <input type="text" id="lastName_input" placeholder="Smith" name="lastName">
+                            <br>
+                            <label for="lastName_input">First Name:</label>
+                            <input type="text" id="lastName_input" placeholder="Jane" name="firstName">
+                            <br>
                             <label for="login_input">Student ID:</label>
                             <input type="text" id="login_input" placeholder="student ID" name="studentID">
+
                             <br>
-                            <br>
-                            <label for="units_input">Password:</label>
+                            <label for="units_input">Number of units to certify:</label>
                             <input type="text" id="units_input" name="unitsInput" placeholder="number of units">
                             <br>
                             <br>
-                            <input type="submit" value="Submit">
-                    
+                            <!-- Vetern beninfite type-->
+                           
+                           
+                            <br>
+                            <ul>
+                               <li>
+                                    <label for="chapter31Radio">Chapter 31 vocational Rehabilitation:</label>
+                                    <input type="radio" id="chapter31Radio"name="VABenefits">
+                                    <div id="chapter31"></div>
+                               </li>
+                               <li>
+                                    <label for="chapter33Radio">Chapter 33 Post-9/11 GI Bill:</label>
+                                    <input type="radio" id="chapter33Radio"name="VABenefits">
+                                </li>
+                                <li>
+                                    <label for="chapter30Radio">Chapter 30 Montgomery GI Bill Active Duty :</label>
+                                    <input type="radio" id="chapter30Radio"name="VABenefits">
+                                </li>
+                                <li>
+                                    <label for="chapter35Radio">Chapter 35 Dependents & Survivors Educational Assistance :</label>
+                                    <input type="radio" id="chapter35Radio"name="VABenefits">
+                                </li>
+                                <li>
+                                    <label for="chapter1606Radio">1606 Montgomery GI Bill Selected Reserves:</label>
+                                    <input type="radio" id="chapter1606Radio"name="VABenefits">
+                                </li>
+                                <br>
+                                <label for="units_input">Number of units to certify:</label>
+                                <input type="text" id="units_input" name="unitsInput" placeholder="number of units">
+                                <br>
+                                <label for="semester_input">Semester:</label>
+                                <input type="text" id="semester_input" name="semesterInput" placeholder="ie: Fall 2020">
+                                <br>
+                                <div class ="FinancialAidQuestions">
+                                <label for="financial_aid_yes">Are you using or have you applied for FinancialAid this semester?</label> 
+                                <label for ="financial_aid_yes">Yes</label>
+                                <input type="radio" id ="financial_aid_yes" name="financial_aid">
+                                <label for ="financial_aid_no">No</label>
+                                <input type="radio" id ="financial_aid_no" name="financial_aid">
+                                <br>
+                                <br>
+                                <label for="free_city_yes">Are you using Free City or any other scholarship this semester?</label> 
+                                <label for ="free_city_yes">Yes</label>
+                                <input type="radio" id ="free_city_yes" name="free_city">
+                                <label for ="free_city_no">No</label>
+                                <input type="radio" id ="free_city_no" name="free_city">
+                            </div>
+                            <div class="stipulations">
+                            <ol>
+                                <li>By signing this form, I affirm that the information I have provided is accurate and I understand:</li>
+                                <li>Failure to complete and return this form immediately after Veteran priority registration,may cause a delay in my VA benefits.</li>
+                                <li>Completion of this CCSF form assures me of enrollment certification with the Department of Veterans Affairs, but does not guaranteepayment from VA.  Payment depends on many factors such as being enrolled in approvedprograms that are on your Student Education Plan(SEP), Notowing money to VA for any overpayments, and compliance with all VA regulations.</li>
+                                <li>My coursework at CCSF can be decertified after prior credit is evaluated (military or college), which may result in overpayment of benefits.  VA does notpay benefits for repeating coursesthat have been successfullycompleted.</li>
+                                <li>Any change in status (dropping, adding, withdraw, student data changes, etc.) must be reported immediatelyto the CCSFVETS Office.  Changes in enrollment after certification may result in under/over payment of benefits of which I may be liable for repayment to VA.</li>
+                                <li>It is my responsibility to follow my education plan and know important college deadlines. The certification of my classes may take 4 to 6weeks during peak enrollment periods and it may take the Department of Veterans Affairs an additional 6 to 8 weeks to process certificates received from the many schools reporting enrollment to VA.</li>
+                                <li>Once my enrollment is certified with VA, they will notify me by email message sent to my CCSFemail account.</li>
+                                <li>Any changes made to your education plan NEEDSto be approved by a CCSF veteran’sacademic counselor.</li>
+                                <li>I understand that I still need to sign and complete a Student Responsibility Contractwith a CCSF veteran’s academic counselor.</li>
+                                <li>I mustcomplete this form EVERY SEMESTERfor which I want to receive VA education benefits</li>
+                            <ol>
+                            </div>
+                                <label for="signature_input">Signature:</label>
+                                <input type="text" id="signature_input" name="signatureInput">
+                                <label for="date_input">date:</label>
+                                <input type="date" id="date_input" name="dateInput">
+                                <br>
+                                <input type="submit" value="Submit">
+                            </ul>
                     </form>
                     <br>
                     <br>
@@ -42,5 +113,42 @@
             </div>
         </article>
     </body>
+    <script>
+        $(document).ready(function()
+        {
+            document.getElementById("chapter33Radio").addEventListener("click",function()
+            {
+                    document.getElementById("counslorName_input").disabled=true;
+                    document.getElementById("counslorName_input").value = "";
+            });
+            document.getElementById("chapter30Radio").addEventListener("click",function()
+            {
+                    document.getElementById("counslorName_input").disabled=true;
+                    document.getElementById("counslorName_input").value = "";
+            });
+            document.getElementById("chapter35Radio").addEventListener("click",function()
+            {
+                    document.getElementById("counslorName_input").disabled=true;
+                    document.getElementById("counslorName_input").value = "";
+            });
+            document.getElementById("chapter1606Radio").addEventListener("click",function()
+            {
+                    document.getElementById("counslorName_input").disabled=true;
+                    document.getElementById("counslorName_input").value = "";
+            });
+
+
+
+
+            document.getElementById("chapter31Radio").addEventListener("click",function()
+            {
+                var html1 =  "<label for=\"counslorName_input\">Vocational rehab case manger:</label>";
+                var html2 = "<input type=\"text\" id=\"counslorName_input\" name=\"counslorName\" disabled required=\"true\" >";   
+                document.getElementById("chapter31").innerHTML = html1+ html2;
+                document.getElementById("counslorName_input").disabled=false;
+            });
+          
+        });
+    </script>
 
 </html>
