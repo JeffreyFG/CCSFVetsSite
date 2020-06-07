@@ -64,6 +64,13 @@ article
     
     
 }
+.landing_page_selection
+{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .stipulations
 {
     font-size: 18px;
