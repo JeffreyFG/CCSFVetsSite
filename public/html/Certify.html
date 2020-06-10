@@ -18,8 +18,8 @@
     <body>
 
         <article>
-            <div class="submitcert" >
-                <div class = "userinput">
+            <div class="submit_section" >
+                
                 <h3>Please enter your Student Id number and number of units to certify</h1>
                     <form action="/certify" encType ="application/x-www-form-urlencoded" method="POST" >
                     
@@ -109,7 +109,7 @@
                     <br>
                     <br>
                     <br>
-                </div>
+                
             </div>
         </article>
     </body>
@@ -118,23 +118,24 @@
         {
             document.getElementById("chapter33Radio").addEventListener("click",function()
             {
-                    document.getElementById("counslorName_input").disabled=true;
-                    document.getElementById("counslorName_input").value = "";
+                label_for_counslorName_input
+                document.getElementById("counslorName_input").remove();
+                document.getElementById("label_for_counslorName_input").remove();
             });
-            document.getElementById("chapter30Radio").addEventListener("click",function()
+            document.getElementById("chapter31").addEventListener("click",function()
             {
-                    document.getElementById("counslorName_input").disabled=true;
-                    document.getElementById("counslorName_input").value = "";
+                document.getElementById("counslorName_input").remove();
+                document.getElementById("label_for_counslorName_input").remove();
             });
             document.getElementById("chapter35Radio").addEventListener("click",function()
             {
-                    document.getElementById("counslorName_input").disabled=true;
-                    document.getElementById("counslorName_input").value = "";
+                document.getElementById("counslorName_input").remove();
+                document.getElementById("label_for_counslorName_input").remove();
             });
             document.getElementById("chapter1606Radio").addEventListener("click",function()
             {
-                    document.getElementById("counslorName_input").disabled=true;
-                    document.getElementById("counslorName_input").value = "";
+                document.getElementById("counslorName_input").remove();
+                document.getElementById("label_for_counslorName_input").remove();
             });
 
 
@@ -142,7 +143,7 @@
 
             document.getElementById("chapter31Radio").addEventListener("click",function()
             {
-                var html1 =  "<label for=\"counslorName_input\">Vocational rehab case manger:</label>";
+                var html1 =  "<label for=\"counslorName_input\" id=\"label_for_counslorName_input\">Vocational rehab case manger:</label>";
                 var html2 = "<input type=\"text\" id=\"counslorName_input\" name=\"counslorName\" disabled required=\"true\" >";   
                 document.getElementById("chapter31").innerHTML = html1+ html2;
                 document.getElementById("counslorName_input").disabled=false;

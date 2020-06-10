@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <link rel="shortcut icon" href="favicon.ico">
+        <head>
+            <title>New Students</title>
+            <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            
+        </head>
+        <nav>
+            <div class="Right_of_Logo">
+                <img src="../images/ccsf-logo.png" alt="Smiley face" height="200px" width="200px">
+               CCSF Veterans Cousnling deparment
+            </div>
+    
+        </nav>
+        <body>
+            
+            <article>
+                <form>
+                    <div class="submit_section">
+                        <a href="https://home.cccapply.org/en/">Link To CCC Apply</a>
+                        <br>
+                        <label for="studnet_id_input">Student ID number</label>
+                        <input type="text" id="student_id_input" name="student_id_value">
+                        <br>
+                        <label for="phone_number_input">Phone number</label>
+                        <input type="text" id="phone_number_input" name="phone_number_value">
+                        <br>
+                        <label for="last_name_input">Last name</label>
+                        <input type="text" id="last_name_input" name="last_name_value">
+                        <br>
+                        <label for="last_name_input">Last name</label>
+                        <input type="text" id="last_name_input" name="last_name_value">
+                        <br>
+                        <label for="first_name_input">First name</label>
+                        <input type="text" id="first_name_input" name="first_name_value">
+                        <br>
+                        <label for="DD214">DD214</label>
+                    
+                        <input type="file" id="DD214" name="DD214_value">
+                        <br>
+                        <label for="COE">COE</label>
+                        <input type="file" id="COE" name="COE_value">
+                        <br>
+                        <label for="transcripts_input">Transcripts</label>
+                        <input type="file" id="transcripts_input" name="transcripts_value" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf">
+                        <input type="image" id="more_transcripts_button" height="25px" width="25px" src="../images/plus_button.png">
+                        <div id="more_transcripts"></div>
+                        <br>
+                        <label for="other_documents">Other documents such as birth certifcates and marige certifcates</label>
+                        <br>
+                        <input type="file" id="transcripts_input" name="documents_value" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf">
+                        <input type="image" id="more_documnets_button" height="25px" width="25px" src="../images/plus_button.png">
+                        <div id ="more_documents"></div>
+                        <br>
+
+                        <input type="submit">
+                    </div>             
+                </form>
+            </article>
+        </body>
+    <script>
+        var number_of_transcripts_inputs = 2;
+        var number_of_documents_inputs = 2;
+        $(document).ready(function()
+        {
+            document.getElementById("more_transcripts_button").addEventListener("click",function()
+            {
+                var label = document.createElement("label");
+                label.textContent="Transcritps: "+number_of_transcripts_inputs;
+                number_of_inputs++;
+                var more_trancripts_input = document.createElement("input");
+                more_trancripts_input.setAttribute("type","file");
+                more_trancripts_input.setAttribute("id","more_transcripts_input"+number_of_transcripts_inputs);
+                more_trancripts_input.setAttribute("name","more_transcripts_value"+number_of_transcripts_inputs);
+                more_trancripts_input.setAttribute("required","true");
+                more_trancripts_input.setAttribute("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+                var line_break = document.createElement("br");
+
+                
+                document.getElementById("more_transcripts").appendChild(label);
+                document.getElementById("more_transcripts").appendChild(more_trancripts_input);
+                document.getElementById("more_transcripts").appendChild(line_break);
+                
+
+            });
+            document.getElementById("more_documnets_button").addEventListener("click",function()
+            {
+                var label = document.createElement("label");
+                label.textContent="documents: "+number_of_documents_inputs;
+                number_of_documents_inputs++;
+
+                var more_documents_input = document.createElement("input");
+                more_documents_input.setAttribute("type","file");
+                more_documents_input.setAttribute("id","more_documnets_input"+number_of_documents_inputs);
+                more_documents_input.setAttribute("name","more_documnets_value"+number_of_documents_inputs);
+                more_documents_input.setAttribute("required","true");
+                more_documents_input.setAttribute("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+                var more_documents_description_label = document.createElement("label");
+                more_documents_description_label.textContent="What kind of document is this?";
+
+                var more_documents_description = document.createElement("input");
+                more_documents_input.setAttribute("type","file");
+                more_documents_input.setAttribute("id","more_documnets_description_input"+number_of_documents_inputs);
+                more_documents_input.setAttribute("name","more_documnets_description_value"+number_of_documents_inputs);
+                more_documents_input.setAttribute("required","true");
+                var line_break = document.createElement("br");
+
+
+                
+                var more_documents_div = document.getElementById("more_documents");
+                more_documents_div.appendChild(label);
+                more_documents_div.appendChild(more_documents_input);
+                more_documents_div.appendChild(more_documents_description_label);
+                more_documents_div.appendChild(more_documents_description);
+                more_documents_div.appendChild(line_break);
+                
+
+            });
+          
+        });
+    </script>
+</html>
