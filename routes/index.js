@@ -14,9 +14,9 @@ router.get('/certify',function(req,res,next)
   res.sendFile('Certify.html',{root:'public/html'});
 
 });
-router.get('/newstudents',function(req,res,next)
+router.get('/newstudent',function(req,res,next)
 {
-  res.sendFile('NewStudnets.html',{root:'public/html'});
+  res.sendFile('NewStudnet.html',{root:'public/html'});
 });
 router.post('/certify',function(req,res,next)
 {
