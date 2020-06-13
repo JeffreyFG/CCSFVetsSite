@@ -22,5 +22,9 @@ router.get('/certified', function(req,res,next)
 {
   res.send("certified");
 });
+router.post("/news_student_register", function(req,res,next)
+{
+  
+})
 
 module.exports = router;
