@@ -6,17 +6,21 @@ var isLoggedIn = require('../middleware/routeprotectors').userIsloggedIn;
 /* GET home page. */
 router.get('/', function(req, res, next) 
 {
-  res.sendFile('Certify.html',{root:'public/html'});
+  res.sendFile('Landingpage.html',{root:'public/html'});
 });
 
+router.get('/certify',function(req,res,next)
+{
+  res.sendFile('Certify.html',{root:'public/html'});
 
-router.use('/postimage',isLoggedIn); 
-router.get('/postimage', function(req, res, next) {
-  res.sendFile('postimage.html',{root:'public/html'});
+});
+router.get('/newstudents',function(req,res,next)
+{
+  res.sendFile('NewStudnets.html',{root:'public/html'});
 });
 router.post('/certify',function(req,res,next)
 {
-  res.redirect('/certified');
+  res.redirect('/certified',{root:'public/html'});
 });
 router.get('/certified', function(req,res,next)
 {
